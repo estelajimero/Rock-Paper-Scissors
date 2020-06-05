@@ -4,106 +4,43 @@
   <title>Rock, Paper, Scissors</title>
   <meta charset="UTF-8"/>
   <link rel="stylesheet" href="styles.css">
+  
+
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet"> 
 
 </head>
 <body>
-  <script>
-    const words = ['Rock', 'Paper', 'Scissors'];  
-    
-    function computerPlay() {
-        let randomWord = words[Math.floor(Math.random() * words.length)];
-        
-        return randomWord;
-    }
+    <div class="header">
+        <h3 class="title">Elige una opción</h3>        
+        <h4 class="info">¡El mejor de 5 rondas!</h4>
+    </div>
+   <div id="main-container">
+        <div class="btn-container">
+            <button class="rock">
+                <h5 class="choice-text">Rock</h5>
+            </button>
+            <button class="paper">
+                <h5 class="choice-text">Paper</h5>
+            </button>
+            <button class="scissors">
+                <h5 class="choice-text">Scissors</h5>
+            </button>
+        </div>
+    </div> 
+    <h4 class="round-text">Ronda 1 de 5</h4>
+    <div class="running-score">
+        <div class="counting-score">
+            <div class="human">
+                <h5 class="score-text">Human Score</h5>
+                <h6 class="points-human points">0</h6>
+            </div>
+            <div class="computer">
+                <h5 class="score-text computer-text">Computer Score</h5>
+                <h6 class="points-computer points">0</h6>
+            </div>
+        </div>
+    </div>
 
-    function playRound(playerSelection, computerSelection) {
-        let player = playerSelection.toLowerCase();
-        let computer = computerSelection.toLowerCase();
-
-        let result = '';
-
-        if (player == 'rock') {
-            if (computer == 'rock') {
-                result = "You Draw! Rock draws Rock";
-            } 
-
-            if (computer == 'paper') {
-                result = "You Lose! Paper beats Rock";
-            }
-
-            if (computer == 'scissors') {
-                result = "You Win! Rock beats Scissors";
-            }
-        }
-
-        if (player == 'paper') {
-            if (computer == 'rock') {
-                result = "You Win! Paper beats Rock";
-            }
-
-            if (computer == 'paper') {
-                result = "You Draw! Paper draws Paper";
-            }
-
-            if (computer == 'scissors') {
-                result = "You Lose! Scissors beats Paper";
-            }
-        }
-
-        if (player == 'scissors') {
-            if (computer == 'rock') {
-                result = "You Lose! Rock beats Scissors";
-            }
-
-            if (computer == 'paper') {
-                result = "You Win! Scissors beats Paper";
-            }
-
-            if (computer == 'scissors') {
-                result = "You Draw! Scissors draws Scissors";
-            }
-        }
-
-        return result;
-
-    }
-
-    function game() {
-        
-        let victories = 0;
-        let loses = 0;
-
-        for(let i = 0; i < 5; i++) {
-
-            let playerSelection = prompt('Elige entre "Rock, Paper, Scissors".');
-            let computerSelection = computerPlay();
-            let score = playRound(playerSelection, computerSelection);
-
-            if (score.indexOf('Win') > 0) {
-                victories++;
-                alert('You win this round');
-            } else if (score.indexOf('Lose') > 0) {
-                loses++;
-                alert('You lose this round');
-            } else if (score.indexOf('Draw') > 0) {
-                alert('You draw this round');
-            } else {
-                alert('Learn to write, asshole');
-            }
-        }
-
-        if (victories > loses) {
-            alert('You win!');
-        } else if (loses > victories) {
-            alert('You lose :(');
-        } else if (victories == loses) {
-            alert('You draw');
-        }
-    }
-
-    game();
-
-  </script>
-
+    <script type="text/javascript" src="script.js"></script>
 </body>
 </html>
